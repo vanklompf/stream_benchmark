@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.22)
+project(StreamBenchmark VERSION 0.1.0)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=haswell -mtune=haswell")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS} -O3 -ggdb")
+set(CMAKE_VERBOSE_MAKEFILE ON)
+include(CPack)
+find_package(benchmark REQUIRED)
+
+add_executable(StreamBenchmark main.cpp)
+target_link_libraries(StreamBenchmark benchmark::benchmark)
