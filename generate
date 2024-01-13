@@ -1,3 +1,4 @@
 #!/bin/bash
 
-dd if=/dev/urandom bs=1048576 count=16384 > `echo /mnt/ramdisk/stream_in.dat`
+dd if=/dev/urandom bs=1048576 count=4096 > `echo /mnt/ramdisk/stream_in.dat`
+touch /mnt/ramdisk/stream_out.dat
